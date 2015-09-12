@@ -2,6 +2,7 @@ package ru.megaphone.topicexpolrer.model;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Topic {
@@ -31,5 +32,9 @@ public class Topic {
 		return topicDirectory.getName();
 	}
 	
+	public LaunchProcedure getLatestLaunchProcedure(){
+		Collections.sort(launchProcedureList,Collections.reverseOrder());
+		return launchProcedureList.get(0);
+	}
 
 }

@@ -18,7 +18,6 @@ public class TopicRepository {
 	private void setTopicsInRepository(){
 		topics = new ArrayList<Topic>();
 		File[] listOfTopics = repositoryFolder.listFiles();
-		
 		for(File topic: listOfTopics){
 			topics.add(new Topic(topic));
 		}
