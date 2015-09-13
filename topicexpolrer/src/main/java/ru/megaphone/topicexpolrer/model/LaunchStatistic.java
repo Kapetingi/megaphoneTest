@@ -9,17 +9,19 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 
 public class LaunchStatistic {
 	
-	private final static String STANDART_FILE_NAME ="offsets.csv"; 
-
+	final static Logger logger = Logger.getLogger(LaunchStatistic.class);
+	
 	File launchStatisticFile; 
 	
 	List<PartisionItem> partisionsInStatistic;
 	
 	public LaunchStatistic(File absoluteFilePath){
-		launchStatisticFile = absoluteFilePath;//new File(absoluteFilePath+"/"+STANDART_FILE_NAME);
+		launchStatisticFile = absoluteFilePath;
 		partisionsInStatistic = readFileStatistic();
 	}
 	
@@ -34,7 +36,7 @@ public class LaunchStatistic {
 				readLine = reader.readLine();
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error(e);
 		} 
 		return result;
 	}

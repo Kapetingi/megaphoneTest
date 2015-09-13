@@ -7,8 +7,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 public class LaunchProcedure implements Comparable<LaunchProcedure> {
 	
+	final static Logger logger = Logger.getLogger(LaunchProcedure.class);
+
 	private Date launchProcedureDate;
 	private File launchProcedureFolder;
 	private List<LaunchStatistic> listLaunchStatistic; 
@@ -22,7 +26,7 @@ public class LaunchProcedure implements Comparable<LaunchProcedure> {
 				listLaunchStatistic.add(new LaunchStatistic(launchStatisic));
 			}
 		} catch (ParseException e) {
-			e.printStackTrace();
+			logger.error(e);
 		}
 	}
 

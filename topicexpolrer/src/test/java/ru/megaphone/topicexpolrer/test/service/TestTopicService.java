@@ -1,11 +1,12 @@
 package ru.megaphone.topicexpolrer.test.service;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Test;
@@ -19,7 +20,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 
-public class TestTopicService extends Assert {
+public class TestTopicService  {
 
 	public static File rootRepositoryDir;
 	

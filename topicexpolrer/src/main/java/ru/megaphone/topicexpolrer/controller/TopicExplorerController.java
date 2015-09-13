@@ -1,5 +1,6 @@
 package ru.megaphone.topicexpolrer.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,26 +17,32 @@ import ru.megaphone.topicexpolrer.view.TopicStatisticMessage;
 @ComponentScan(basePackages = {"ru.megaphone.topicexpolrer.service"})
 public class TopicExplorerController {
 	
-		@Autowired
-		TopicExplorerService topicService;
+	final static Logger logger = Logger.getLogger(TopicExplorerController.class);
 
-	    @RequestMapping(value="/topiclist")
-	    public @ResponseBody TopicListMessage getTopicInDirectory() {
-	    	return topicService.getTopicInDirectory();
-	    }
-	    
-	    @RequestMapping(value="/lastLaunchList")
-	    public @ResponseBody TopicLaunchDateMessage getLastLaunchTopicProcedureList(){
-	    	return topicService.getLastLaunchTopicProcedureList();
-	    }
-	    
-	    @RequestMapping(value="/topicLaunchStatistic")
-	    public @ResponseBody TopicStatisticMessage getLaunchStatisticMap(){
-	    	return topicService.getLaunchStatisticMap();
-	    }
-	    
-	    @RequestMapping(value="/topicLaunchPartision")
-	    public @ResponseBody TopicPartisionListMessage getPartisionLaunchStatistic(){
-	    	return topicService.getPartisionLaunchStatistic();
-	    }
+	@Autowired
+	TopicExplorerService topicService;
+
+    @RequestMapping(value="/topiclist")
+    public @ResponseBody TopicListMessage getTopicInDirectory() {
+    	logger.debug("GET request: URL '/topiclist'");
+    	return topicService.getTopicInDirectory();
+    }
+    
+    @RequestMapping(value="/lastLaunchList")
+    public @ResponseBody TopicLaunchDateMessage getLastLaunchTopicProcedureList(){
+    	logger.debug("GET request: URL '/lastLaunchList'");
+    	return topicService.getLastLaunchTopicProcedureList();
+    }
+    
+    @RequestMapping(value="/topicLaunchStatistic")
+    public @ResponseBody TopicStatisticMessage getLaunchStatisticMap(){
+    	logger.debug("GET request: URL '/topicLaunchStatistic'");
+    	return topicService.getLaunchStatisticMap();
+    }
+    
+    @RequestMapping(value="/topicLaunchPartision")
+    public @ResponseBody TopicPartisionListMessage getPartisionLaunchStatistic(){
+    	logger.debug("GET request: URL '/topicLaunchPartision'");
+    	return topicService.getPartisionLaunchStatistic();
+    }
 }
